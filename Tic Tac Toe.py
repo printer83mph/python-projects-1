@@ -10,9 +10,9 @@ def main():
     print "Here's how it works:"
     print "Player X goes first, and then player O"
     print "The grid looks like this:\n"
-    print " - | - | - "
-    print " - | - | - "
-    print " - | - | - \n"
+    print " --- "
+    print " --- "
+    print " --- \n"
 
     grid = [[0,0,0],[0,0,0],[0,0,0]]
     ply1_turn = turn(1,grid)
