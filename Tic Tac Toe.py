@@ -2,8 +2,8 @@
 # printer83mph's version
 import time
 
-def raw_ask(question):
-    return raw_input(str(question) + "\n>>> ")
+def ask(question):
+    return input(str(question) + "\n>>> ")
 
 def main():
     print "Welcome to my Tic Tac Toe Game!"
@@ -14,15 +14,18 @@ def main():
     print " - | - | - "
     print " - | - | - \n"
 
-    grid = [[0,0,0],[0,0,0],[0,0,1]]
-    turn(1,grid)
+    grid = [[0,0,0],[0,0,0],[0,0,0]]
+    ply1_turn = turn(1,grid)
+    if(ply1_turn != False):
+        grid[ply1_turn[0]][ply1_turn[1]] = 1
+
     print(grid[2][2])
 
 def turn(ply,grid):
-    row = raw_ask("Player " + str(ply) + " Row?")
-    column = raw_ask("X Column?")
+    row = ask("Player " + str(ply) + " Row?")
+    column = ask("Player " + str(ply) + " Column?")
     if(grid[row-1][column-1] == 0):
-        return [row,column]
+        return [row-1,column-1]
     else:
         return False
 
