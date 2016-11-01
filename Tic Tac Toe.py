@@ -50,6 +50,8 @@ def main():
 
     grid = [[0,0,0],[0,0,0],[0,0,0]]
 
+    turns = 0
+
     while True:
         ply1_turn = turn(1,grid)
         if(ply1_turn != False):
@@ -57,14 +59,22 @@ def main():
         print_grid(grid)
         if(ply_won(grid) != 0):
             break
+        turns += 1
+        if(turns == 9):
+            break
         ply2_turn = turn(2,grid)
         if(ply2_turn != False):
             grid[ply2_turn[0]][ply2_turn[1]] = 2
         print_grid(grid)
         if(ply_won(grid) != 0):
             break
-
-    print(str(ply_won(grid)) + " wins")
+        turns += 1
+        if(turns == 9):
+            break
+    if(ply_won(grid) != False):
+        print(str(ply_won(grid)) + " wins")
+    else:
+        print("Tie!")
 
 if __name__ == "__main__":
     main()
