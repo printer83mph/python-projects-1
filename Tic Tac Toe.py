@@ -66,4 +66,5 @@ def main():
 
     print(str(ply_won(grid)) + " wins")
 
-main()
+if __name__ == "__main__":
+    main()
