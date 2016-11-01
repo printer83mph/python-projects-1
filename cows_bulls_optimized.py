@@ -13,11 +13,9 @@ def main():
 				works = False
 		if(works):
 			num.append(gen_num)
-	print(num)
 	won = False
 	while(won == False):
 		guess = list(raw_input("Guess?\n>>> "))
-		print(guess)
 		bulls = 0
 		cows = 0
 		# Check for bulls
