@@ -1,3 +1,6 @@
+# Text Based Adventure
+# module by printer83mph
+
 class Cow(object):
 	
 	def __init__(self):
