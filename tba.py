@@ -4,7 +4,10 @@ class Cow(object):
 		self.hp = 10
 		self.name = "Cow"
 		self.alive = True
-		
+	
+	def rename(self,new_name):
+		self.name = new_name
+
 	def kill(self):
 		self.alive = False
 		
