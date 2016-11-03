@@ -25,7 +25,7 @@ class Cow(object):
 	def talk():
 		print("Moo")
 
-class Enemy(object.Cow):
+class Enemy(Cow):
 	
 	def __init__(self,start_hp,ap):
 		self.hp = start_hp
