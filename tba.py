@@ -18,3 +18,14 @@ class Cow(object):
 	
 	def talk():
 		print("Moo")
+
+class Enemy(object.Cow):
+	
+	def __init__(self,start_hp,ap):
+		self.hp = start_hp
+		self.name = "Enemy"
+		self.alive = True
+		self.atk_power = ap
+	
+	def attack(self):
+		return self.atk_power
