@@ -35,8 +35,8 @@ class Bull(Cow):
 		self.alive = True
 		self.atk_power = ap
 	
-	def attack(self):
-		return self.atk_power
+	def attack(self,cow):
+		cow.hurt(self.atk_power)
 
 class SmartBull(Cow):
 	
@@ -46,6 +46,6 @@ class SmartBull(Cow):
 		self.alive = True
 		self.attacks = atks
 	
-	def attack(self):
-		return self.attacks
+	def attack(self,cow):
+		cow.hurt(5)
 
