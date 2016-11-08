@@ -71,7 +71,7 @@ class Monkey(Cow):
 		cur_wep = 0
 		while(cur_wep <= len(self.weapons)-1):
 			if(self.weapons[cur_wep].uses > 0):
-				print(self.name + " used " + self.weapons[cur_weps].name + " against " + cow.name + " for " + str(self.weapons[cur_wep].damage) + " damage!")
+				print(self.name + " used " + self.weapons[cur_wep].name + " against " + cow.name + " for " + str(self.weapons[cur_wep].damage) + " damage!")
 				self.weapons[cur_wep].uses -= 1
 				cow.hurt(self.weapons[cur_wep].damage)
 				return
