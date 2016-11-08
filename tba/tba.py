@@ -72,3 +72,15 @@ class SmartBull(Cow):
 	
 	def talk():
 		print("Snort (Greetings!)")
+
+class StudentBull(SmartBull):
+	
+	def __init__(self,start_hp):
+		self.hp = start_hp
+		self.name = "Student Bull"
+		self.alive = True
+		self.attacks = []
+	
+	def learn(self,attack):
+		print(self.name + " learned " + attack.name + "!")
+		self.attacks.append(attack)
