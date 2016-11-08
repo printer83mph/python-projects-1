@@ -1,6 +1,8 @@
 # Text Based Adventure
 # module by printer83mph
 
+import random
+
 class Cow(object):
 	
 	def __init__(self):
@@ -35,3 +37,15 @@ class Bull(Cow):
 	
 	def attack(self):
 		return self.atk_power
+
+class SmartBull(Cow):
+	
+	def __init__(self,start_hp,atks,atknames,atktimes):
+		self.hp = start_hp
+		self.name = "Smart Bull"
+		self.alive = True
+		self.attacks = atks
+	
+	def attack(self):
+		return self.attacks
+
