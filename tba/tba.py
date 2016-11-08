@@ -38,6 +38,13 @@ class Bull(Cow):
 	def attack(self,cow):
 		cow.hurt(self.atk_power)
 
+class Attack:
+	
+	def __init__(self,name,damage,uses):
+		self.name = name
+		self.damage = damage
+		self.uses = uses
+
 class SmartBull(Cow):
 	
 	def __init__(self,start_hp,atks,atknames,atktimes):
