@@ -56,6 +56,9 @@ class Weapon:
 		self.name = name
 		self.damage = damage
 		self.uses = uses
+	
+	def break(self):
+		self.uses = 0
 
 class Monkey(Cow):
 	
