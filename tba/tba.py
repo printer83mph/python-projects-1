@@ -61,14 +61,14 @@ class SmartBull(Cow):
 	
 	def attack(self,cow):
 		cur_atk = 0
-		while(self.attacks[cur_atk].uses <= 0):
-			cur_atk += 1
-			if(self.attacks[cur_atk] >= length(self.attacks)-1):
-				print(self.name + " has no attacks left!")
+		while(cur_atk <= len(self.attacks)-1):
+			if(self.attacks[cur_atk].uses > 0):
+				print(self.name + " used " + self.attacks[cur_atk].name + " against " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
+				self.attacks[cur_atk].uses -= 1
+				cow.hurt(self.attacks[cur_atk].damage)
 				return
-		cow.hurt(self.attacks[cur_atk].damage)
-		self.attacks[cur_atk].uses -= 1
-		print(self.name + " used " + self.attacks[cur_atk].name + " against " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
+			cur_atk += 1
+		print(self.name + " has no attacks left!")
 	
 	def talk():
 		print("Snort (Greetings!)")
