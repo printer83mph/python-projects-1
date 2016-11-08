@@ -14,6 +14,7 @@ class Cow(object):
 		self.name = new_name
 
 	def kill(self):
+		print(self.name + " fainted!")
 		self.alive = False
 		
 	def hurt(self,amt):
@@ -22,6 +23,7 @@ class Cow(object):
 			self.kill()
 	
 	def heal(self,amt):
+		print(self.name + " healed for " + str(amt) + " hp!")
 		self.hp += amt
 	
 	def talk():
@@ -36,6 +38,7 @@ class Bull(Cow):
 		self.atk_power = ap
 	
 	def attack(self,cow):
+		print(self.name + " attacked " + cow.name + " for " + str(self.atk_power) + " damage!")
 		cow.hurt(self.atk_power)
 	
 	def talk():
@@ -60,7 +63,7 @@ class SmartBull(Cow):
 		cur_atk = 0
 		while(self.attacks[cur_atk].uses <= 0):
 			cur_atk += 1
-			if(self.attacks[cur_atk] >= length(self.attacks)):
+			if(self.attacks[cur_atk] >= length(self.attacks)-1):
 				print(self.name + " has no attacks left!")
 				return
 		cow.hurt(self.attacks[cur_atk].damage)
