@@ -5,9 +5,9 @@ import random
 
 class Cow(object):
 	
-	def __init__(self):
-		self.hp = 10
-		self.max_hp = 10
+	def __init__(self,start_hp):
+		self.hp = start_hp
+		self.max_hp = start_hp
 		self.name = "Cow"
 		self.alive = True
 	
