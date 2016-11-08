@@ -25,11 +25,11 @@ class Cow(object):
 	def talk():
 		print("Moo")
 
-class Enemy(Cow):
+class Bull(Cow):
 	
 	def __init__(self,start_hp,ap):
 		self.hp = start_hp
-		self.name = "Enemy"
+		self.name = "Bull"
 		self.alive = True
 		self.atk_power = ap
 	
