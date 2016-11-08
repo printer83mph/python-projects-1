@@ -7,6 +7,7 @@ class Cow(object):
 	
 	def __init__(self):
 		self.hp = 10
+		self.max_hp = 10
 		self.name = "Cow"
 		self.alive = True
 	
@@ -23,8 +24,12 @@ class Cow(object):
 			self.kill()
 	
 	def heal(self,amt):
-		print(self.name + " healed for " + str(amt) + " hp!")
-		self.hp += amt
+		old_hp = self.hp
+		self.hp = min(self.hp + amt, self.max_hp)
+		print(self.name + " healed for " + str(self.hp - old_hp) + " hp!")
+	
+	def health_up(self,amt):
+		self.max_health += amt
 	
 	def talk():
 		print("Moo")
@@ -33,6 +38,7 @@ class Bull(Cow):
 	
 	def __init__(self,start_hp,ap):
 		self.hp = start_hp
+		self.max_hp = start_hp
 		self.name = "Bull"
 		self.alive = True
 		self.atk_power = ap
@@ -55,6 +61,7 @@ class SmartBull(Cow):
 	
 	def __init__(self,start_hp,atks):
 		self.hp = start_hp
+		self.max_hp = start_hp
 		self.name = "Smart Bull"
 		self.alive = True
 		self.attacks = atks
