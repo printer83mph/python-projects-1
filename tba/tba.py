@@ -65,7 +65,7 @@ class SmartBull(Cow):
 				return
 		cow.hurt(self.attacks[cur_atk].damage)
 		self.attacks[cur_atk].uses -= 1
-		print(self.name + " attacked " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
+		print(self.name + " used " + self.attacks[cur_atk].name + " against " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
 	
 	def talk():
 		print("Snort (Greetings!)")
