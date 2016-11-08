@@ -37,6 +37,9 @@ class Bull(Cow):
 	
 	def attack(self,cow):
 		cow.hurt(self.atk_power)
+	
+	def talk():
+		print("Snort")
 
 class Attack:
 	
@@ -55,4 +58,6 @@ class SmartBull(Cow):
 	
 	def attack(self,cow):
 		cow.hurt(5)
-
+	
+	def talk():
+		print("Snort (Greetings!)")
