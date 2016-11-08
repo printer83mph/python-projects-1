@@ -1,8 +1,6 @@
 # Text Based Adventure
 # module by printer83mph
 
-import random
-
 class Cow(object):
 	
 	def __init__(self,start_hp=10):
