@@ -50,14 +50,22 @@ class Attack:
 
 class SmartBull(Cow):
 	
-	def __init__(self,start_hp,atks,atknames,atktimes):
+	def __init__(self,start_hp,atks):
 		self.hp = start_hp
 		self.name = "Smart Bull"
 		self.alive = True
 		self.attacks = atks
 	
 	def attack(self,cow):
-		cow.hurt(5)
+		cur_atk = 0
+		while(self.attacks[cur_atk].uses <= 0):
+			cur_atk += 1
+			if(self.attacks[cur_atk] >= length(self.attacks)):
+				print(self.name + " has no attacks left!")
+				return
+		cow.hurt(self.attacks[cur_atk].damage)
+		self.attacks[cur_atk].uses -= 1
+		print(self.name + " attacked " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
 	
 	def talk():
 		print("Snort (Greetings!)")
