@@ -55,8 +55,8 @@ class Weapon:
 		self.damage = damage
 		self.uses = uses
 	
-	def break(self):
-		self.uses = 0
+	def tamper(self,amt):
+		self.uses -= amt
 
 class Monkey(Cow):
 	
