@@ -5,7 +5,7 @@ import random
 
 class Cow(object):
 	
-	def __init__(self,start_hp):
+	def __init__(self,start_hp=10):
 		self.hp = start_hp
 		self.max_hp = start_hp
 		self.name = "Cow"
@@ -28,7 +28,7 @@ class Cow(object):
 		self.hp = min(self.hp + amt, self.max_hp)
 		print(self.name + " healed for " + str(self.hp - old_hp) + " hp!")
 	
-	def health_up(self,amt):
+	def health_up(self,amt=1):
 		self.max_health += amt
 	
 	def talk():
@@ -36,7 +36,7 @@ class Cow(object):
 
 class Bull(Cow):
 	
-	def __init__(self,start_hp,ap):
+	def __init__(self,start_hp=10,ap=2):
 		self.hp = start_hp
 		self.max_hp = start_hp
 		self.name = "Bull"
@@ -52,14 +52,14 @@ class Bull(Cow):
 
 class Weapon:
 	
-	def __init__(self,name,damage,uses):
+	def __init__(self,name,damage=3,uses=5):
 		self.name = name
 		self.damage = damage
 		self.uses = uses
 
 class Monkey(Cow):
 	
-	def __init__(self,start_hp,weps=[]):
+	def __init__(self,start_hp=10,weps=[]):
 		self.hp = start_hp
 		self.max_hp = start_hp
 		self.name = "Monkey"
