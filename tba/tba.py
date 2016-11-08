@@ -50,44 +50,36 @@ class Bull(Cow):
 	def talk():
 		print("Snort")
 
-class Attack:
+class Weapon:
 	
 	def __init__(self,name,damage,uses):
 		self.name = name
 		self.damage = damage
 		self.uses = uses
 
-class SmartBull(Cow):
+class Monkey(Cow):
 	
-	def __init__(self,start_hp,atks):
+	def __init__(self,start_hp,weps=[]):
 		self.hp = start_hp
 		self.max_hp = start_hp
-		self.name = "Smart Bull"
+		self.name = "Monkey"
 		self.alive = True
-		self.attacks = atks
+		self.weapons = weps
 	
 	def attack(self,cow):
-		cur_atk = 0
-		while(cur_atk <= len(self.attacks)-1):
-			if(self.attacks[cur_atk].uses > 0):
-				print(self.name + " used " + self.attacks[cur_atk].name + " against " + cow.name + " for " + str(self.attacks[cur_atk].damage) + " damage!")
-				self.attacks[cur_atk].uses -= 1
-				cow.hurt(self.attacks[cur_atk].damage)
+		cur_wep = 0
+		while(cur_wep <= len(self.weapons)-1):
+			if(self.weapons[cur_wep].uses > 0):
+				print(self.name + " used " + self.weapons[cur_weps].name + " against " + cow.name + " for " + str(self.weapons[cur_wep].damage) + " damage!")
+				self.weapons[cur_wep].uses -= 1
+				cow.hurt(self.weapons[cur_wep].damage)
 				return
-			cur_atk += 1
-		print(self.name + " has no attacks left!")
+			cur_wep += 1
+		print(self.name + " can't attack!")
 	
 	def talk():
-		print("Snort (Greetings!)")
-
-class StudentBull(SmartBull):
+		print("I kill you!")
 	
-	def __init__(self,start_hp):
-		self.hp = start_hp
-		self.name = "Student Bull"
-		self.alive = True
-		self.attacks = []
-	
-	def learn(self,attack):
-		print(self.name + " learned " + attack.name + "!")
-		self.attacks.append(attack)
+	def give(self,wep):
+		print(self.name + " got " + wep.name + "!")
+		self.weapons.append(wep)
