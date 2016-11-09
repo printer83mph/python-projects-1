@@ -66,12 +66,14 @@ class Weapon:
 
 class Monkey(Cow):
 	
-	def __init__(self,start_hp=10,weps=[]):
+	def __init__(self,start_hp=10,weps=None):
 		self.hp = start_hp
 		self.max_hp = start_hp
 		self.name = "Monkey"
 		self.alive = True
 		self.weapons = weps
+		if(self.weapons is None):
+			self.weapons = []
 	
 	def attack(self,cow):
 		cur_wep = 0
@@ -101,12 +103,14 @@ class Monkey(Cow):
 
 class Farmer(Cow):
 	
-	def __init__(self,start_hp=10,owned=[]):
+	def __init__(self,start_hp=10,owned=None):
 		self.hp = start_hp
 		self.max_hp = start_hp
 		self.name = "Farmer"
 		self.alive = True
 		self.owned = owned
+		if(self.owned is None):
+			self.owned = []
 	
 	def attack(self,cow):
 		cur_cow = 0
