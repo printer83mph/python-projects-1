@@ -32,7 +32,7 @@ class Cow(object):
 	def health_up(self,amt=1):
 		self.max_health += amt
 	
-	def talk():
+	def talk(self):
 		print("Moo")
 
 class Bull(Cow):
@@ -51,7 +51,7 @@ class Bull(Cow):
 	def can_attack(self):
 		return self.alive
 	
-	def talk():
+	def talk(self):
 		print("Snort")
 
 class Weapon:
@@ -94,8 +94,8 @@ class Monkey(Cow):
 			cur_wep += 1
 		return False
 	
-	def talk():
-		print("I kill you!")
+	def talk(self):
+		print("I AM A MONKEY")
 	
 	def give(self,wep):
 		print(self.name + " got " + wep.name + "!")
@@ -121,3 +121,6 @@ class Farmer(Cow):
 				return
 			cur_cow += 1
 		print(self.name + " can't attack!")
+	
+	def talk(self):
+		print("Howdy partner")
