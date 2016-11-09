@@ -21,6 +21,9 @@ class Cow(object):
 		if(self.hp <= 0):
 			self.kill()
 	
+	def can_attack(self):
+		return False
+	
 	def heal(self,amt):
 		old_hp = self.hp
 		self.hp = min(self.hp + amt, self.max_hp)
@@ -44,6 +47,9 @@ class Bull(Cow):
 	def attack(self,cow):
 		print(self.name + " attacked " + cow.name + " for " + str(self.atk_power) + " damage!")
 		cow.hurt(self.atk_power)
+	
+	def can_attack(self):
+		return True
 	
 	def talk():
 		print("Snort")
@@ -78,9 +84,36 @@ class Monkey(Cow):
 			cur_wep += 1
 		print(self.name + " can't attack!")
 	
+	def can_attack(self):
+		cur_wep = 0
+		while(cur_wep <= len(self.weapons)-1 and self.alive):
+			if(self.weapons[cur_wep].uses > 0):
+				return True
+			cur_wep += 1
+		return False
+	
 	def talk():
 		print("I kill you!")
 	
 	def give(self,wep):
 		print(self.name + " got " + wep.name + "!")
 		self.weapons.append(wep)
+
+class Farmer(Cow):
+	
+	def __init__(self,start_hp=10,owned=[]):
+		self.hp = start_hp
+		self.max_hp = start_hp
+		self.name = "Farmer"
+		self.alive = True
+		self.owned = owned
+	
+	def attack(self,cow):
+		cur_cow = 0
+		while(cur_cow <= len(self.owned)-1):
+			if(self.owned[cur_cow].can_attack()):
+				print(self.name + " deployed " + self.owned[cur_cow].name + "!")
+				self.owned[cur_cow].attack(cow)
+				return
+			cur_cow += 1
+		print(self.name + " can't attack!")
