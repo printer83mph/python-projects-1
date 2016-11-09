@@ -49,7 +49,10 @@ class Bull(Cow):
 		cow.hurt(self.atk_power)
 	
 	def can_attack(self):
-		return True
+		if(self.alive):
+			return True
+		else:
+			return False
 	
 	def talk():
 		print("Snort")
